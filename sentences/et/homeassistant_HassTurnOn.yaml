@@ -1,0 +1,27 @@
+language: et
+intents:
+  HassTurnOn:
+    data:
+      - sentences:
+          - "lülita sisse <name>"
+          - "lülita <name> sisse"
+      - sentences:
+          - "ava [kardinad | kardin] <name>"
+          - "ava [kardinad | kardin] <name> [toa | toas] <area>"
+        response: cover
+      - sentences:
+          - "ava garaaži uks"
+        slots:
+          domain: cover
+          device_class: garage
+      - sentences:
+          - "ava kardinad [toa | toas] <area>"
+          - "ava [toa | toas] <area> kardinad"
+        slots:
+          domain: cover
+          device_class:
+            - window
+            - blind
+            - curtain
+            - shutter
+        response: cover_area

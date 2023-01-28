@@ -1,0 +1,103 @@
+language: et
+tests:
+  # brightness
+  - sentences:
+      - "määra tule magamistoa lamp ereduseks 50%"
+      - "sea pirni magamistoa lamp ereduseks 50"
+    intent:
+      name: "HassLightSet"
+      slots:
+        brightness: 50
+        name: light.magamistoa_lamp
+    response:
+      - "magamistoa lamp eredus on 50%"
+      - "magamistoa lamp eredus on 50"
+  - sentences:
+      - "säti tuba magamistuba ereduseks 50"
+      - "sea tuba magamistuba ereduseks 50% eredust"
+      - "muuda toa magamistuba ereduseks 50%"
+    intent:
+      name: "HassLightSet"
+      slots:
+        brightness: 50
+        area: "magamistuba"
+        name: all
+    response:
+      - "Eredus toas magamistuba on nüüd 50%"
+      - "Eredus toas magamistuba on nüüd 50"
+  - sentences:
+      - "set the bedroom lamp brightness to max"
+      - "set the brightness of bedroom lamp to the highest"
+      - "set the bedroom lamp to maximum brightness"
+    intent:
+      name: "HassLightSet"
+      slots:
+        brightness: 100
+        name: light.magamistoa_lamp
+    response:
+      - "bedroom lamp brightness set to max"
+      - "bedroom lamp brightness set to maximum"
+      - "bedroom lamp brightness set to highest"
+
+  - sentences:
+      - "set the brightness in the bedroom to max"
+      - "set the brightness of bedroom to the highest"
+      - "set the bedroom brightness to the max"
+      - "set the bedroom to maximum brightness"
+    intent:
+      name: "HassLightSet"
+      slots:
+        brightness: 100
+        area: "bedroom"
+        name: all
+    response:
+      - "Brightness in bedroom set to max"
+      - "Brightness in bedroom set to maximum"
+      - "Brightness in bedroom set to highest"
+
+  - sentences:
+      - "set the bedroom lamp brightness to the lowest"
+      - "set the brightness of bedroom lamp to lowest"
+      - "set the bedroom lamp to minimum brightness"
+    intent:
+      name: "HassLightSet"
+      slots:
+        brightness: 1
+        name: light.magamistoa_lamp
+    response:
+      - "bedroom lamp brightness set to lowest"
+      - "bedroom lamp brightness set to minimum"
+  - sentences:
+      - "set the brightness in the bedroom to the lowest"
+      - "set the brightness of bedroom to lowest"
+      - "set the bedroom brightness to the minimum"
+      - "set the bedroom to minimum brightness"
+    intent:
+      name: "HassLightSet"
+      slots:
+        brightness: 1
+        area: "bedroom"
+        name: all
+    response:
+      - "Brightness in bedroom set to lowest"
+      - "Brightness in bedroom set to minimum"
+  # color
+  - sentences:
+      - "muuda magamistoa lamp värviks punane"
+      - "määra tule magamistoa lamp värviks punane"
+    intent:
+      name: "HassLightSet"
+      slots:
+        color: "red"
+        name: "light.magamistoa_lamp"
+    response: "bedroom lamp color set to red"
+  - sentences:
+      - "set the bedroom color to red"
+      - "set the color of the bedroom to red"
+    intent:
+      name: "HassLightSet"
+      slots:
+        color: "red"
+        area: "bedroom"
+        name: all
+    response: "Color in bedroom set to red"
